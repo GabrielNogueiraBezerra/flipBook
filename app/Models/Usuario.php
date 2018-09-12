@@ -19,7 +19,7 @@ class Usuario extends Authenticatable {
     protected $table = 'usuario';
     protected $primaryKey = 'id';
     protected $filliable = [
-        'tipo_usuario', 'email', 'senha', 'nome'
+        'id', 'tipo_usuario', 'email', 'senha', 'nome'
     ];
     protected $hidden = [
         'id', 'id_endereco', 'id_contato'

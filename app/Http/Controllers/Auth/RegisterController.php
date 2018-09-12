@@ -98,7 +98,6 @@ use RegistersUsers;
      * @return \App\Models\Endereco
      */
     private function endereco(array $data) {
-       
         return (Endereco::create([
                     'endereco' => $data['endereco'],
                     'numero' => $data['numero'],
