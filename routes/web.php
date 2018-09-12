@@ -11,9 +11,8 @@
   |
  */
 
+Route::get('/', 'Site\HomeController@index');
 
-
-Route::get('/', 'HomeController@index')->name('home');
 Route::get('/teste', 'TesteController@teste');
 Route::get('/home', 'HomeController@index')->name('home');
 
