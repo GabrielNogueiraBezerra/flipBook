@@ -7,4 +7,6 @@
 <!-- Plugins js -->
 <script src="{{ asset('bibliotecas/js/plugins.js') }}"></script>
 <!-- Active js -->
-<script src="{{ asset('bibliotecas/js/active.js') }}"></script>
+<script src="{{ asset('~bibliotecas/js/active.js') }}"></script>
+<!-- Active js -->
+<script src="{{ asset('bibliotecas/js/temp.js') }}"></script>
