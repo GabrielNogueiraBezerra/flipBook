@@ -10,3 +10,7 @@
 <script src="{{ asset('~bibliotecas/js/active.js') }}"></script>
 <!-- Active js -->
 <script src="{{ asset('bibliotecas/js/temp.js') }}"></script>
+
+@if(@explode('/', Request::url())[3] == 'register')
+<script src="{{ asset('bibliotecas/js/buscaCidades.js') }}"></script>
+@endif

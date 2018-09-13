@@ -12,11 +12,9 @@
  */
 
 Route::get('/', 'Site\HomeController@index');
+Route::get('/home', 'Site\HomeController@index');
 
-Route::get('/asd', 'Auth\LoginController@logout');
-
-Route::get('/teste', 'TesteController@teste');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/sair', 'Auth\LoginController@logout');
 
 Auth::routes();
 Route::get('/buscarCidades/{id}', 'Auth\RegisterController@getCidades');

@@ -8,9 +8,11 @@
             <div class="col-12">
                 <div class="search-content">
                     <form action="#" method="get">
-                        <input type="search" name="pesquisar" id="pesquisar" placeholder="Faça a sua busca...">
+                        <input type="search" name="pesquisar"
+                               id="pesquisar" placeholder="Faça a sua busca...">
                         <button type="submit">
-                            <img src="{{ asset('bibliotecas/img/core-img/search.png') }}" alt="">
+                            <img src="{{ asset('bibliotecas/img/core-img/search.png') }}"
+                                 alt="">
                         </button>
                     </form>
                 </div>

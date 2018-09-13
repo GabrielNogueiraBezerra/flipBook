@@ -29,7 +29,7 @@ use RegistersUsers;
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -54,8 +54,8 @@ use RegistersUsers;
                     'endereco' => 'required|string|max:255',
                     'numero' => 'required|numeric',
                     'cep' => 'required|string|min:9|max:9',
-                    'pontoReferencia' => 'string|max:255',
-                    'complemento' => 'string|max:255',
+                    'pontoReferencia' => 'max:255',
+                    'complemento' => 'max:255',
                     'bairro' => 'required|string|max:255',
                     'estado' => 'required',
                     'cidade' => 'required',
@@ -97,12 +97,25 @@ use RegistersUsers;
      * @return \App\Models\Endereco
      */
     private function endereco(array $data) {
+
+        if ($data['pontoReferencia'] == null || $data['pontoReferencia'] == '') {
+            $referencia = '';
+        } else {
+            $referencia = $data['pontoReferencia'];
+        }
+
+        if ($data['complemento'] == null || $data['complemento'] == '') {
+            $complemento = '';
+        } else {
+            $complemento = $data['complemento'];
+        }
+
         return (Endereco::create([
                     'endereco' => $data['endereco'],
                     'numero' => $data['numero'],
                     'cep' => $data['cep'],
-                    'pontoReferencia' => $data['pontoReferencia'],
-                    'complemento' => $data['complemento'],
+                    'pontoReferencia' => $referencia,
+                    'complemento' => $complemento,
                     'bairro' => $data['bairro'],
                     'id_cidade' => $this->cidade($data)['id']
         ]));

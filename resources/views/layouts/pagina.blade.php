@@ -6,8 +6,10 @@
         @include('include.navbar')
         @include('include.search')
         <!-- ##### Main Content Wrapper Start ##### -->
-        <div class="main-content-wrapper d-flex clearfix">
+        <div class="{{@ explode('/', Request::url())[3] != 'register' ? 'main-content-wrapper d-flex clearfix' : '' }}">
+            @if(@explode('/', Request::url())[3] != 'register')
             @include('include.sidebar')
+            @endif
 
             <div class="products-catagories-area clearfix">
                 @yield('content')
@@ -15,34 +17,5 @@
         </div>
         @include('include.footer')
         @include('include.scripts')
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#estado").change(function () {
-                    var URLLocal = 'http://localhost:8000/buscarCidades/' + this.value;
-                    var select = document.getElementById("cidade");
-                    $("#cidade").empty();
-
-                    $.ajax({
-
-                        type: 'GET',
-
-                        url: URLLocal,
-
-                        dataType: 'json',
-
-                        data: {'value': $(this).val()},
-
-                        success: function (result) {
-                            for (var i = 0; i < result.length; i++) {
-                                var option = new Option(result[i].descricao, result[i].id);
-                                select.add(option);
-                            }
-
-                        },
-                    });
-                });
-            });
-        </script>
     </body>
 </html>

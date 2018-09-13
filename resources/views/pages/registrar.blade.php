@@ -1,15 +1,16 @@
 @extends('layouts.pagina')
 @section('content')
 <div class="amado-pro-catagory clearfix">
-    <!--Cadastro formulario-->
-    <div class="container">
-        @if(!empty($errors->first()))
-        <div class="row col-lg-12">
-            <div  class="alert alert-danger">
-                <span>{{ $errors->first() }}</span>
-            </div>
+    <br>
+
+    @if(!empty($errors->first()))
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div  class="alert alert-danger text-center">
+            <span class="">{{ $errors->first() }}</span>
         </div>
-        @endif
+    </div>
+    @endif
+    <div class="container">
         <form method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
             <div class="row" id="menu-abas">
@@ -75,131 +76,136 @@
                     </div>
                 </div>
             </div>
-            <div class="row" id="dados-localizacao">
-                <div class="col col-9">
-                    <div class="form-group">
-                        <label for="endereco" class="col-md-12 control-label">Endereço</label>
+            <div class="desactive" id="dados-localizacao">
+                <div class="row">
+                    <div class="col col-9">
+                        <div class="form-group">
+                            <label for="endereco" class="col-md-12 control-label">Endereço</label>
 
-                        <div class="col-md-12">
-                            <input placeholder="Digite seu endereço" id="endereco" type="text" class="form-control" name="endereco" required>
+                            <div class="col-md-12">
+                                <input placeholder="Digite seu endereço" id="endereco" type="text" class="form-control" name="endereco" required>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col col-3">
-                    <div class="form-group">
-                        <label for="numero" class="col-md-12 control-label">Número</label>
+                    <div class="col col-3">
+                        <div class="form-group">
+                            <label for="numero" class="col-md-12 control-label">Número</label>
 
-                        <div class="col-md-12">
-                            <input id="numero" type="text" class="form-control" name="numero" required>
+                            <div class="col-md-12">
+                                <input id="numero" placeholder="Digite o número" type="text" class="form-control" name="numero" required>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col col-3">
-                    <div class="form-group">
-                        <label for="bairro" class="col-md-12 control-label">Bairro</label>
+                    <div class="col col-3">
+                        <div class="form-group">
+                            <label for="bairro" class="col-md-12 control-label">Bairro</label>
 
-                        <div class="col-md-12">
-                            <input id="bairro" type="text" class="form-control" name="bairro" 
-                                   required>
+                            <div class="col-md-12">
+                                <input id="bairro" placeholder="Digite o bairro" type="text" class="form-control" name="bairro" 
+                                       required>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col col-3">
-                    <div class="form-group">
-                        <label for="cep" class="col-md-12 control-label">CEP</label>
+                    <div class="col col-3">
+                        <div class="form-group">
+                            <label for="cep" class="col-md-12 control-label">CEP</label>
 
-                        <div class="col-md-12">
-                            <input id="cep" type="text" class="form-control" name="cep" required>
+                            <div class="col-md-12">
+                                <input id="cep" type="text" placeholder="Digite o CEP" class="form-control" name="cep" required>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col col-3">
-                    <div class="form-group">
-                        <label for="Festado" class="col-md-12 control-label">Estado</label>
+                    <div class="col col-3">
+                        <div class="form-group">
+                            <label for="Festado" class="col-md-12 control-label">Estado</label>
 
-                        <div class="col-md-12">
-                            <select required id="estado" name="estado" class="form-control" onblur="">
-                                <option>Selecionar...</option>
-                                @foreach($estados as $estado)
-                                <option value="{{$estado->id}}">{{@$estado->descricao}}</option>
-                                @endforeach
-                            </select>
+                            <div class="col-md-12">
+                                <select required id="estado" name="estado" class="form-control" onblur="">
+                                    <option>Selecionar...</option>
+                                    @foreach($estados as $estado)
+                                    <option value="{{$estado->id}}">{{@$estado->descricao}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col col-3">
-                    <div class="form-group">
-                        <label for="cidade" class="col-md-12 control-label">Cidade</label>
+                    <div class="col col-3">
+                        <div class="form-group">
+                            <label for="cidade" class="col-md-12 control-label">Cidade</label>
 
-                        <div class="col-md-12">
-                            <select required id="cidade" name="cidade" class="form-control">
-                            </select>
+                            <div class="col-md-12">
+                                <select required id="cidade" name="cidade" class="form-control">
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col col-12">
-                    <div class="form-group">
-                        <label for="pontoReferencia" class="col-md-4 control-label">Ponto de Referência</label>
+                    <div class="col col-12">
+                        <div class="form-group">
+                            <label for="pontoReferencia" class="col-md-4 control-label">Ponto de Referência</label>
 
-                        <div class="col-md-12">
-                            <textarea rows="4" id="pontoReferencia" type="text" class="form-control" name="pontoReferencia"></textarea>
+                            <div class="col-md-12">
+                                <textarea rows="4" placeholder="Digite o ponto de referência" id="pontoReferencia" type="text" class="form-control" name="pontoReferencia"></textarea>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col col-12">
-                    <div class="form-group">
-                        <label for="complemento" class="col-md-12 control-label">Complemento</label>
+                    <div class="col col-12">
+                        <div class="form-group">
+                            <label for="complemento" class="col-md-12 control-label">Complemento</label>
 
-                        <div class="col-md-12">
-                            <textarea rows="4" id="complemento" type="text" class="form-control" name="complemento"></textarea>
+                            <div class="col-md-12">
+                                <textarea rows="4" id="complemento" placeholder="Digite o complemento" type="text" class="form-control" name="complemento"></textarea>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col col-12">
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <button class="btn btn-warning float-left" type="button" data-actives="dados-usuario">Anterior</button>
+                    <div class="col col-12">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <button class="btn btn-warning float-left" type="button" data-actives="dados-usuario">Anterior</button>
 
-                            <button class="btn btn-warning float-right" disabled data-actives="dados-conta" type="button">Próximo</button>
+                                <button class="btn btn-warning float-right" disabled data-actives="dados-conta" type="button">Próximo</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-            <div class="row" id="dados-conta">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="password" class="col-md-12 control-label">Senha</label>
-
-                        <div class="col-md-12">
-                            <input id="senha" type="password" class="form-control" name="senha" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="senha_confirmation" class="col-md-12 control-label">Confirmar Senha</label>
-
-                        <div class="col-md-12">
-                            <input id="senha_confirmation" type="password" class="form-control" name="senha_confirmation" 
-                                   required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <div class="col col-12">
-                            <button class="btn btn-warning float-left" type="button" data-actives="dados-localizacao">Anterior</button>
-
-                            <button class="btn btn-warning float-right" disabled data-actives="dados-conta" type="submit">Cadastrar</button>                      </div>
-                    </div>
                 </div>
             </div>
+            <div class="desactive" id="dados-conta">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="password" class="col-md-12 control-label">Senha</label>
+
+                            <div class="col-md-12">
+                                <input id="senha" type="password" placeholder="Digite sua senha" class="form-control" name="senha" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="senha_confirmation" class="col-md-12 control-label">Confirmar Senha</label>
+
+                            <div class="col-md-12">
+                                <input id="senha_confirmation" type="password" placeholder="Confirme a sua senha" class="form-control" name="senha_confirmation" 
+                                       required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col col-12">
+                                <button class="btn btn-warning float-left" type="button" data-actives="dados-localizacao">Anterior</button>
+
+                                <button class="btn btn-warning float-right" disabled data-actives="dados-conta" type="submit">Cadastrar</button>                      </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
         </form>
     </div>
 </div>

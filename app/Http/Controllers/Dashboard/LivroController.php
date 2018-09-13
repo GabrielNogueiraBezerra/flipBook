@@ -18,11 +18,11 @@ class LivroController extends Controller {
         AlterarLivro;
 
     public function __construct() {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     public function index() {
-        return view('livro.index');
+        return view('pages.livro');
     }
 
     public function salvar(Request $request) {
