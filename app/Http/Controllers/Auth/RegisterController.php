@@ -49,7 +49,6 @@ use RegistersUsers;
     protected function validator(array $data) {
         return Validator::make($data, [
                     'nome' => 'required|string|max:255',
-                    'tipoUsuario' => 'required|numeric|',
                     'email' => 'required|string|email|max:255',
                     'senha' => 'required|string|min:6|confirmed',
                     'endereco' => 'required|string|max:255',
@@ -73,7 +72,7 @@ use RegistersUsers;
     protected function create(array $data) {
         return Usuario::create([
                     'email' => $data['email'],
-                    'tipoUsuario' => $data['tipoUsuario'],
+                    'tipoUsuario' => 1,
                     'senha' => bcrypt($data['senha']),
                     'nome' => $data['nome'],
                     'id_endereco' => $this->endereco($data)['id'],

@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
     //Cadastro usuario
     $("#dados-localizacao").hide();
     $("#dados-conta").hide();
 
 
 
-    $("#dados-usuario .form-control").on("keydown", function() {
+    $("#dados-usuario .form-control").on("keydown", function () {
         if ($("[name='nome']").val() != '' && $("[name='sobrenome']").val() != '' && $("[name='data']").val() != '' && $("[name='telefone']").val() != '') {
             $("[data-actives='dados-localizacao']").attr("disabled", false);
         } else {
@@ -14,7 +14,7 @@ $(document).ready(function() {
 
     });
 
-    $("#dados-localizacao .form-control").on("keydown", function() {
+    $("#dados-localizacao .form-control").on("keydown", function () {
         if ($("[name='endereco']").val() != '' && $("[name='numero']").val() != '' && $("[name='cep']").val() != '' && $("[name='estado']").val() != '' && $("[name='cidade']").val() != '') {
             $("[data-actives='dados-conta']").attr("disabled", false);
         } else {
@@ -23,26 +23,26 @@ $(document).ready(function() {
 
     });
 
-    $("[data-actives='dados-localizacao']").click(function() {
+    $("[data-actives='dados-localizacao']").click(function () {
         $("#dados-usuario").hide();
         $("#dados-conta").hide();
         $("#dados-localizacao").show();
     });
 
-    $("[data-actives='dados-conta']").click(function() {
+    $("[data-actives='dados-conta']").click(function () {
         $("#dados-usuario").hide();
         $("#dados-localizacao").hide();
         $("#dados-conta").show();
     });
 
-    $("[data-actives='dados-usuario']").click(function() {
+    $("[data-actives='dados-usuario']").click(function () {
         $("#dados-localizacao").hide();
         $("#dados-conta").hide();
         $("#dados-usuario").show();
     });
 
     //livros
-    $(".list-group a").click(function() {
+    $(".list-group a").click(function () {
         var livro = $(this);
         if (!livro.hasClass('bg-warning text-light')) {
             $(".list-group a").removeClass("bg-warning text-light");
