@@ -14,3 +14,22 @@
 .desactive{
     display: none;
 }
+
+
+.single-products-catagory{
+    width: 33%;
+    float: left;
+    height: 50vh;
+    position: relative;
+    
+}
+
+.single-products-catagory a{
+    height: 100%;
+    position: relative;
+}
+
+.single-products-catagory a img{
+    height: 100%;
+    margin: auto;
+}
