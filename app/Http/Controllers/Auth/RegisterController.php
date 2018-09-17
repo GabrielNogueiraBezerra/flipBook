@@ -9,6 +9,7 @@ use App\Models\Cidade;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\Estado;
 
 class RegisterController extends Controller {
     /*
@@ -30,6 +31,14 @@ use RegistersUsers;
      * @var string
      */
     protected $redirectTo = '/';
+
+    public function mostraFormRegistrar() {
+        return view('pages.registrar')->with('estados', Estado::all());
+    }
+
+    public function getCidades($idEstado = 0) {
+        echo json_encode(Cidade::where('id_estado', '=', $idEstado)->get());
+    }
 
     /**
      * Create a new controller instance.

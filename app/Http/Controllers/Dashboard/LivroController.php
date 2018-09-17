@@ -22,7 +22,7 @@ class LivroController extends Controller {
     }
 
     public function index() {
-        return view('pages.livro')->with('livros', Livro::all());
+        return view('pages.livro')->with('livros', Livro::where('dono', '=', Auth::user()->id)->get());
     }
 
     public function salvar(Request $request) {

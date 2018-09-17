@@ -12,7 +12,7 @@
             <li class="{{ @$url == 'login' ? ' active' : '' }}"><a href="/login">Minha conta</a></li>
             @else
             <li><a href="/login">Olá, {{ Auth::user()->nome }}</a></li>
-            <li><a href="/livros">Meus Livros</a></li>
+            <li class="{{ @$url == 'livros' ? ' active ' : ''}}"><a href="/livros">Meus Livros</a></li>
             <li><a href="/sair">Sair</a></li>
             @endif
         </ul>

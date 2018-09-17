@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use App\Models\Usuario;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller {
     /*
@@ -25,6 +29,38 @@ use AuthenticatesUsers;
      * @var string
      */
     protected $redirectTo = '/';
+
+    public function mostraFormLogin() {
+        return view('pages.login');
+    }
+
+    public function logar(Request $request) {
+
+
+        $this->validateLogin($request);
+
+        // If the class is using the ThrottlesLogins trait, we can automatically throttle
+        // the login attempts for this application. We'll key this by the username and
+        // the IP address of the client making these requests into this application.
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        $usuario = $this->matchingUser($request);
+        if (!empty($usuario['id'])) {
+            if (Hash::check($request->input('senha'), $usuario['senha'])) {
+                Auth::login($usuario, true);
+
+                return $this->sendLoginResponse($request);
+            }
+        }
+
+        $this->incrementLoginAttempts($request);
+
+        return $this->sendFailedLoginResponse($request);
+    }
 
     /**
      * Create a new controller instance.
