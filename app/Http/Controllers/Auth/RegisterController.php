@@ -49,7 +49,7 @@ use RegistersUsers;
     protected function validator(array $data) {
         return Validator::make($data, [
                     'nome' => 'required|string|max:255',
-                    'email' => 'required|string|email|max:255',
+                    'email' => 'required|string|email|max:255|unique:usuario',
                     'senha' => 'required|string|min:6|confirmed',
                     'endereco' => 'required|string|max:255',
                     'numero' => 'required|numeric',

@@ -28,7 +28,7 @@ class Livro extends Model {
 
     // função que retornará a capa do livro
     public function capa() {
-        return $this->hasOne('app\Models\Imagem', 'capa', 'id');
+        return $this->hasOne('app \Model s\Imagem', 'i d', 'capa');
     }
 
     public static function create($array = null) {

@@ -13,10 +13,13 @@ class Imagem extends Model {
      */
 
     protected $table = 'imagem';
+    
     protected $primaryKey = 'id';
+    
     protected $filliable = [
         'id', 'local', 'nome'
     ];
+    
     protected $hidden = [
         'id'
     ];

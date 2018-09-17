@@ -3,19 +3,25 @@
         @include('include.head')
     </head>
     <body>
+
+        @php
+        $url = @explode('/', Request::url())[3]
+        @endphp
         @include('include.navbar')
         @include('include.search')
-        <!-- ##### Main Content Wrapper Start ##### -->
-        <div class="{{@ explode('/', Request::url())[3] != 'register' ? 'main-content-wrapper d-flex clearfix' : '' }}">
-            @if(@explode('/', Request::url())[3] != 'register')
-            @include('include.sidebar')
-            @endif
 
-            <div class="products-catagories-area clearfix">
-                @yield('content')
+        <!-- ##### Main Content Wrapper Start ##### -->
+        @if(($url != 'register') and ($url != 'login'))
+        <div class="main-content-wrapper d-flex clearfix">
+            @include('include.sidebar')
+            @else
+            <div>
+                @endif
+                <div class="products-catagories-area clearfix">
+                    @yield('content')
+                </div>
             </div>
-        </div>
-        @include('include.footer')
-        @include('include.scripts')
+            @include('include.footer')
+            @include('include.scripts')
     </body>
 </html>

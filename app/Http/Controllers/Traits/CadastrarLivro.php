@@ -4,8 +4,18 @@ namespace App\Http\Controllers\Traits;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Imagem;
+use App\Models\Livro;
+use App\Models\Estoque;
 
 trait CadastrarLivro {
+
+    private $request;
+
+    private function cadastrar(Request $request) {
+        $this->request = $request;
+        return $this->cadastrarEstoque($request->all());
+    }
 
     private function cadastrarEstoque(array $array) {
         return Estoque::create([
@@ -15,9 +25,20 @@ trait CadastrarLivro {
     }
 
     private function cadastrarImagem(array $array) {
+
+        $nomeImagem = md5(date('YYmmddh:i:s')) . '.' . $this->request->capa->extension();
+
+        $diretorio = 'bibliotecas/img/livros/' . md5(Auth::user()->id);
+
+        if (!file_exists($diretorio)) {
+            mkdir("$diretorio", 0700);
+        }
+
+        $this->request->capa->move($diretorio, $nomeImagem);
+
         return Imagem::create([
-                    'local' => '',
-                    'nome' => ''
+                    'local' => $diretorio . '/',
+                    'nome' => $nomeImagem
         ]);
     }
 

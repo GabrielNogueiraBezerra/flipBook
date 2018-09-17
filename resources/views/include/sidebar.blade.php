@@ -7,11 +7,12 @@
     <!-- Amado Nav -->
     <nav class="amado-nav">
         <ul>
-            <li class="active"><a href="/">Início</a></li>
+            <li class="{{ @$url == '' ? ' active' : '' }}"><a href="/">Início</a></li>
             @if (Auth::guest())
-            <li><a href="/login">Minha conta</a></li>
+            <li class="{{ @$url == 'login' ? ' active' : '' }}"><a href="/login">Minha conta</a></li>
             @else
             <li><a href="/login">Olá, {{ Auth::user()->nome }}</a></li>
+            <li><a href="/livros">Meus Livros</a></li>
             <li><a href="/sair">Sair</a></li>
             @endif
         </ul>

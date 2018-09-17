@@ -7,7 +7,7 @@
                 <div class="single_widget_area">
                     <!-- Logo -->
                     <div class="footer-logo mr-50">
-                        <a href="index.html"><img src="bibliotecas/img/logo2.png" alt=""></a>
+                        <a href="/"><img src="bibliotecas/img/logo2.png" alt=""></a>
                     </div>
                     <!-- Copywrite Text -->
                     <p class="copywrite">
@@ -26,7 +26,8 @@
                     <!-- Footer Menu -->
                     <div class="footer_menu">
                         <nav class="navbar navbar-expand-lg justify-content-end">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                                    data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                             <div class="collapse navbar-collapse" id="footerNavContent">
                                 <ul class="navbar-nav ml-auto">
                                     <li class="nav-item active">

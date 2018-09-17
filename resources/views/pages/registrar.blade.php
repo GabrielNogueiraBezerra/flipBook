@@ -10,6 +10,7 @@
         </div>
     </div>
     @endif
+    
     <div class="container">
         <form method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
@@ -63,7 +64,8 @@
                         <label for="email" class="col-md-12 control-label">Endereço de e-mail</label>
 
                         <div class="col-md-12">
-                            <input placeholder="Digite seu endereço de e-mail" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                            <input  placeholder="Digite seu endereço de e-mail" id="email" type="email"
+                                   class="form-control" name="email" value="{{ old('email') }}" required>
                         </div>
                     </div>
                 </div>
@@ -146,7 +148,8 @@
                             <label for="pontoReferencia" class="col-md-4 control-label">Ponto de Referência</label>
 
                             <div class="col-md-12">
-                                <textarea rows="4" placeholder="Digite o ponto de referência" id="pontoReferencia" type="text" class="form-control" name="pontoReferencia"></textarea>
+                                <textarea rows="4" placeholder="Digite o ponto de referência" id="pontoReferencia"
+                                          type="text" class="form-control" name="pontoReferencia"></textarea>
                             </div>
                         </div>
                     </div>

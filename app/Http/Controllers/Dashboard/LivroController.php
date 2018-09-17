@@ -18,16 +18,18 @@ class LivroController extends Controller {
         AlterarLivro;
 
     public function __construct() {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index() {
-        return view('pages.livro');
+        return view('pages.livro')->with('livros', Livro::all());
     }
 
     public function salvar(Request $request) {
         $this->validator($request->all())->validate();
-        $this->cadastrarEstoque($request->all());
+        $this->cadastrar($request);
+
+        return redirect()->back();
     }
 
     public function validator(array $data) {

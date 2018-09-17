@@ -12,6 +12,9 @@
  */
 
 Route::get('/', 'Site\HomeController@index');
+
+Route::get('/teste', 'Site\HomeController@teste');
+
 Route::get('/home', 'Site\HomeController@index');
 
 Route::get('/sair', 'Auth\LoginController@logout');
