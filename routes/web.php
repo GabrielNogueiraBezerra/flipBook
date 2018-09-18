@@ -13,8 +13,6 @@
 
 Route::get('/', 'Site\HomeController@index');
 
-Route::get('/teste', 'Site\HomeController@teste');
-
 Route::get('/home', 'Site\HomeController@index');
 
 Route::get('/sair', 'Auth\LoginController@logout');
@@ -22,8 +20,14 @@ Route::get('/sair', 'Auth\LoginController@logout');
 Route::get('/buscarCidades/{id}', 'Auth\RegisterController@getCidades');
 
 Route::get('/livros', 'Dashboard\LivroController@index');
-
 Route::post('/livros', 'Dashboard\LivroController@salvar');
+Route::get('/livros/{id}', 'Dashboard\LivroController@mostrarFormAlterarLivro');
+Route::post('/alterarLivro', 'Dashboard\LivroController@alterar');
+Route::get('/deletaCapa/{id}', 'Dashboard\LivroController@deletaCapa');
+Route::post('/alterar', 'Dashboard\LivroController@alterar');
+Route::get('/excluir/{id}', 'Dashboard\LivroController@excluir');
+Route::get('/livro/{id}', 'Dashboard\LivroController@mostrarFormVerLivro');
+
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@mostraFormLogin')->name('login');

@@ -13,13 +13,10 @@ class Imagem extends Model {
      */
 
     protected $table = 'imagem';
-    
     protected $primaryKey = 'id';
-    
     protected $filliable = [
         'id', 'local', 'nome'
     ];
-    
     protected $hidden = [
         'id'
     ];
@@ -29,7 +26,16 @@ class Imagem extends Model {
         $imagem->local = $array['local'];
         $imagem->nome = $array['nome'];
         $imagem->save();
-        
+
+        return $imagem;
+    }
+
+    public static function alterar($array = null) {
+        $imagem = Imagem::where('id', '=', $array['id'])->get()->first();
+        $imagem->local = $array['local'];
+        $imagem->nome = $array['nome'];
+        $imagem->save();
+
         return $imagem;
     }
 

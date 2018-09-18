@@ -14,15 +14,4 @@ class HomeController extends Controller {
         return view('pages.home')->with('livros', Livro::all());
     }
 
-    public function teste() {
-        echo "a<br>";
-
-        
-        
-        
-        echo md5(date('YYmmddh:i:s'));
-        echo "<br>";
-        echo $hashed;
-    }
-
 }

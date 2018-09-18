@@ -22,13 +22,18 @@ class Livro extends Model {
     ];
 
     // função que retornará o dono do livro
-    public function dono() {
-        return $this->hasOne('app\Models\Usuario', 'dono', 'id');
+    public function donoLivro() {
+        return $this->hasOne('app\Models\Usuario', 'id', 'dono');
     }
 
     // função que retornará a capa do livro
-    public function capa() {
-        return $this->hasOne('app \Model s\Imagem', 'i d', 'capa');
+    public function capaLivro() {
+        return $this->hasOne('App\Models\Imagem', 'id', 'capa');
+    }
+
+    //função que retornará o estoque do livro
+    public function estoque() {
+        return $this->hasOne('App\Models\Estoque', 'livro', 'id');
     }
 
     public static function create($array = null) {
@@ -38,6 +43,16 @@ class Livro extends Model {
         $livro->sinopse = $array['sinopse'];
         $livro->dono = $array['dono'];
         $livro->capa = $array['capa'];
+        $livro->save();
+
+        return $livro;
+    }
+
+    public static function alterar($array = null) {
+        $livro = Livro::where('id', '=', $array['id'])->get()->first();
+        $livro->nome = $array['nome'];
+        $livro->autor = $array['autor'];
+        $livro->sinopse = $array['sinopse'];
         $livro->save();
 
         return $livro;

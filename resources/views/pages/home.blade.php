@@ -2,10 +2,9 @@
 @section('content')
 <div class="amado-pro-catagory clearfix">
     @foreach($livros as $livro)
-    {{$livro->capa}}
     <div class="single-products-catagory clearfix">
         <a href="#">
-            <img src="{{@$livro->capa->local}}{{@$livro->capa->nome}}" alt="">
+            <img src="{{@$livro->capaLivro->local}}{{@$livro->capaLivro->nome}}" alt="">
             <!-- Hover Content -->
             <div class="hover-content">
                 <div class="line"></div>
@@ -14,6 +13,5 @@
         </a>
     </div>
     @endforeach
-    
 </div>
 @stop

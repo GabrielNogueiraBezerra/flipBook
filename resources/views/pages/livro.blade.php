@@ -53,7 +53,9 @@
                         <label for="estoque" class="col-md-12 control-label">Estoque Inicial</label>
 
                         <div class="col-md-12">
-                            <input id="estoque" value="{{ old('estoque') }}" placeholder="Digite o estoqeu do livro" type="text" class="form-control" name="estoque" required>
+                            <input id="estoque" value="{{ old('estoque') }}"
+                                   placeholder="Digite o estoque do livro" type="number" 
+                                   class="form-control" name="estoque" required>
                         </div>
                     </div>
 
@@ -68,7 +70,7 @@
             </div>
             <!--lista de livros-->
             <div class="col col-6" id="lista-livros">
-                <h4>Livros cadastrados</h4>
+                <h4 class="text-center">Livros cadastrados</h4>
                 <div class="list-group">
                     @foreach($livros as $livro)
                     <a href="#" class="list-group-item list-group-item-action" id-livro="{{@$livro->id}}">{{@$livro->nome}}</a>

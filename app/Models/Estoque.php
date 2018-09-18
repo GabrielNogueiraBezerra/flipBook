@@ -35,4 +35,12 @@ class Estoque extends Model {
         return $estoque;
     }
 
+    public static function alterar($array = null) {
+        $estoque = Estoque::where('id', '=', $array['id'])->get()->first();
+        $estoque->quantidade = $array['estoque'];
+        $estoque->save();
+
+        return $estoque;
+    }
+
 }

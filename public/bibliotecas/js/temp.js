@@ -48,9 +48,9 @@ $(document).ready(function () {
             $(".list-group a").removeClass("bg-warning text-light");
             livro.addClass("bg-warning text-light");
             $("#lista-opcoes a ").removeClass("disabled");
-            $("#lista-opcoes a[name='ver-livro']").attr("href", "endereco/" + livro.attr("id-livro"));
-            $("#lista-opcoes a[name='alterar-livro']").attr("href", "endereco/" + livro.attr("id-livro"));
-            $("#lista-opcoes a[name='excluir-livro']").attr("href", "endereco/" + livro.attr("id-livro"));
+            $("#lista-opcoes a[name='ver-livro']").attr("href", "livro/" + livro.attr("id-livro"));
+            $("#lista-opcoes a[name='alterar-livro']").attr("href", "livros/" + livro.attr("id-livro"));
+            $("#lista-opcoes a[name='excluir-livro']").attr("href", "excluir/" + livro.attr("id-livro"));
         } else {
             livro.removeClass("bg-warning text-light");
             $("#lista-opcoes a ").addClass("disabled");

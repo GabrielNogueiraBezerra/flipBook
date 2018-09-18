@@ -49,9 +49,10 @@ use AuthenticatesUsers;
         }
 
         $usuario = $this->matchingUser($request);
+
         if (!empty($usuario['id'])) {
             if (Hash::check($request->input('senha'), $usuario['senha'])) {
-                Auth::login($usuario, true);
+                Auth::login($usuario, $request->input('remember'));
 
                 return $this->sendLoginResponse($request);
             }
