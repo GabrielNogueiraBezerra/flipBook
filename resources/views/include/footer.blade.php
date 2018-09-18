@@ -7,7 +7,7 @@
                 <div class="single_widget_area">
                     <!-- Logo -->
                     <div class="footer-logo mr-50">
-                        <a href="/"><img src="bibliotecas/img/logo2.png" alt=""></a>
+                        <a href="/"><img src="{{asset('bibliotecas/img/logo2.png')}}" alt=""></a>
                     </div>
                     <!-- Copywrite Text -->
                     <p class="copywrite">
@@ -30,12 +30,22 @@
                                     data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                             <div class="collapse navbar-collapse" id="footerNavContent">
                                 <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item active">
+                                    <li class="nav-item {{ @$url == '/' ? ' active ' : ''}}">
                                         <a class="nav-link" href="/">Início</a>
                                     </li>
-                                    <li class="nav-item">
+                                    @if (Auth::guest())
+                                    <li class="nav-item {{ @$url == 'login' ? ' active' : '' }}">
                                         <a class="nav-link" href="/login">Minha conta</a>
                                     </li>
+                                    @else
+                                    <li class="nav-item"><a class="nav-link" href="/home">Olá, {{ Auth::user()->nome }}</a></li>
+                                    <li class="nav-item {{ @$url == 'livros' ? ' active ' : ''}}">
+                                        <a class="nav-link" href="/livros">Meus Livros</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/sair">Sair</a>
+                                    </li>
+                                    @endif
                                 </ul>
                             </div>
                         </nav>

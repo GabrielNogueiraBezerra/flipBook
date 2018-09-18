@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light bg-dark">
     <div class="container">
-        <a class="navbar-brand">
+        <a class="navbar-brand" href="/">
             <img src="{{ asset('bibliotecas/img/logo2.png') }}" alt="">
         </a>
         <form class="form-inline">

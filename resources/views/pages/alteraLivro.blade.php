@@ -44,7 +44,7 @@
 
                         <div class="col-md-12">
                             <textarea id="sinopse" name="sinopse" placeholder="Digite a sinopse do lviro"
-                                      class="form-control" rows="4" required="">{{ $livro->sinopse }}</textarea>
+                                      class="form-control" rows="10" required="">{{ $livro->sinopse }}</textarea>
                         </div>
                     </div>
                     <div class="form-group">

@@ -9,7 +9,7 @@
 <title>{{ config('app.name', 'Laravel') }}</title>
 
 <!-- Favicon  -->
-<link rel="icon" href="">
+<link rel="icon" href="{{ asset('bibliotecas/img/logo.png') }}">
 
 <!-- Core Style CSS -->
 <link rel="stylesheet" href="{{ asset('bibliotecas/css/core-style.css') }}">
