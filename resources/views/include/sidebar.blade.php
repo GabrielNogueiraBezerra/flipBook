@@ -13,6 +13,8 @@
             @else
             <li><a href="/home">Olá, {{ Auth::user()->nome }}</a></li>
             <li class="{{ @$url == 'livros' ? ' active ' : ''}}"><a href="/livros">Meus Livros</a></li>
+            <li class="{{ @$url == 'areaVendas' ? ' active ' : ''}}"><a href="/areaVendas">Minhas vendas</a></li>
+            <li class="{{ @$url == 'areaCompras' ? ' active ' : ''}}"><a href="/areaCompras">Minhas Compras</a></li>
             <li><a href="/sair">Sair</a></li>
             @endif
         </ul>

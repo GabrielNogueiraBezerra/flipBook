@@ -1,4 +1,4 @@
-@extends('layouts.pagina')
+    @extends('layouts.pagina')
 @section('content')
 <div class="amado-pro-catagory clearfix">
     <br>

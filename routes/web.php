@@ -15,10 +15,9 @@ Route::get('/', 'Site\HomeController@index');
 
 Route::get('/home', 'Site\HomeController@index');
 
-Route::get('/sair', 'Auth\LoginController@logout');
 
-Route::get('/buscarCidades/{id}', 'Auth\RegisterController@getCidades');
 
+// Livro Routes...
 Route::get('/livros', 'Dashboard\LivroController@index');
 Route::post('/livros', 'Dashboard\LivroController@salvar');
 Route::get('/livros/{id}', 'Dashboard\LivroController@mostrarFormAlterarLivro');
@@ -28,15 +27,22 @@ Route::post('/alterar', 'Dashboard\LivroController@alterar');
 Route::get('/excluir/{id}', 'Dashboard\LivroController@excluir');
 Route::get('/livro/{id}', 'Dashboard\LivroController@mostrarFormVerLivro');
 
+// Compra Routes...
+Route::get('/areaVendas', 'Dashboard\AreaVendasController@index');
+Route::get('/areaCompras', 'Dashboard\AreaCompraController@index');
+
+
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@mostraFormLogin')->name('login');
 $this->post('login', 'Auth\LoginController@logar');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/sair', 'Auth\LoginController@logout');
 
 // Registration Routes...
 $this->get('register', 'Auth\RegisterController@mostraFormRegistrar')->name('register');
 $this->post('register', 'Auth\RegisterController@register');
+Route::get('/buscarCidades/{id}', 'Auth\RegisterController@getCidades');
 
 // Password Reset Routes...
 $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
