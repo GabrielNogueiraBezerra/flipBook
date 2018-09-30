@@ -10,8 +10,37 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller {
 
+    private $paginate = 6;
+
     public function index() {
-        return view('pages.home')->with('livros', Livro::all());
+        if (Auth::check()) {
+            return view('pages.home')->with('livros', Livro::join('estoque', 'estoque.livro', '=', 'livro.id')->
+                                    select('livro.*', 'estoque.quantidade')->
+                                    where('estoque.quantidade', '>', 0)->
+                                    where('livro.dono', '<>', Auth::user()->id)->paginate($this->paginate));
+        } else {
+            return view('pages.home')->with('livros', Livro::join('estoque', 'estoque.livro', '=', 'livro.id')->
+                                    select('livro.*', 'estoque.quantidade')->
+                                    where('estoque.quantidade', '>', 0)->
+                                    paginate($this->paginate));
+        }
+    }
+
+    public function pesquisa(Request $request) {
+        if (Auth::check()) {
+            return view('pages.home')->with('livros', Livro::join('estoque', 'estoque.livro', '=', 'livro.id')->
+                                    select('livro.*', 'estoque.quantidade')->
+                                    where('estoque.quantidade', '>', 0)->
+                                    where('livro.nome', 'like', '%' . $request->input('pesquisa') . '%')->
+                                    where('livro.dono', '<>', Auth::user()->id)->
+                                    paginate($this->paginate))->with('pesquisas', $request->all());
+        } else {
+            return view('pages.home')->with('livros', Livro::join('estoque', 'estoque.livro', '=', 'livro.id')->
+                                    select('livro.*', 'estoque.quantidade')->
+                                    where('estoque.quantidade', '>', 0)->
+                                    where('livro.nome', 'like', '%' . $request->input('pesquisa') . '%')->
+                                    paginate($this->paginate))->with('pesquisas', $request->all());
+        }
     }
 
 }

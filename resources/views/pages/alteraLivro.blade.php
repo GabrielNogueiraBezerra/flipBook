@@ -73,6 +73,56 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="comprimento" class="col-md-12 control-label">Comprimento</label>
+
+                        <div class="col-md-12">
+                            <input id="comprimento" value="{{ $livro->comprimento }}"
+                                   placeholder="Digite o comprimento do livro" type="text" 
+                                   class="form-control" name="comprimento" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="altura" class="col-md-12 control-label">Altura</label>
+
+                        <div class="col-md-12">
+                            <input id="altura" value="{{ $livro->altura }}"
+                                   placeholder="Digite a altura do livro" type="text" 
+                                   class="form-control" name="altura" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="largura" class="col-md-12 control-label">Largura</label>
+
+                        <div class="col-md-12">
+                            <input id="largura" value="{{ $livro->largura }}"
+                                   placeholder="Digite a largura do livro" type="text" 
+                                   class="form-control" name="largura" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="diametro" class="col-md-12 control-label">Diametro</label>
+
+                        <div class="col-md-12">
+                            <input id="diametro" value="{{ $livro->diametro }}"
+                                   placeholder="Digite o diametro do livro" type="text" 
+                                   class="form-control" name="diametro" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="peso" class="col-md-12 control-label">Peso</label>
+
+                        <div class="col-md-12">
+                            <input id="peso" value="{{ $livro->peso }}"
+                                   placeholder="Digite o peso do livro" type="text" 
+                                   class="form-control" name="peso" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <div class="col-md-12 col-md-offset-4">
                             <button type="submit" class="btn btn-warning pull-right">
                                 Alterar

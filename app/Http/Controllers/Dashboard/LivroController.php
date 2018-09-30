@@ -15,6 +15,8 @@ use App\Http\Controllers\Traits\DeletarLivro;
 
 class LivroController extends Controller {
 
+    private $paginacao = 5;
+
     use CadastrarLivro,
         AlterarLivro,
         DeletarLivro;
@@ -24,7 +26,14 @@ class LivroController extends Controller {
     }
 
     public function index() {
-        return view('pages.livro')->with('livros', Livro::where('dono', '=', Auth::user()->id)->get());
+        return view('pages.livro')->with('livros', Livro::where('dono', '=', Auth::user()->id)->paginate($this->paginacao));
+    }
+
+    public function pesquisa(Request $request) {
+        return view('pages.livro')->with('livros', Livro::
+                                where('dono', '=', Auth::user()->id)->
+                                where('nome', 'like', '%' . $request->input('pesquisa') . '%')->
+                                paginate($this->paginacao))->with('pesquisar', $request->all());
     }
 
     public function mostrarFormAlterarLivro($codigo = 0) {
@@ -35,7 +44,7 @@ class LivroController extends Controller {
         $livro = Livro::where("id", "=", $codigo)->get()->first();
         if ($livro) {
             return view('pages.verLivro')->with("livro", $livro);
-        }else{
+        } else {
             return redirect()->back();
         }
     }
@@ -68,12 +77,20 @@ class LivroController extends Controller {
     }
 
     public function validator(array $data) {
+
+        $regex = "/^[0-9]+(\.[0-9][0-9]?)?$/";
+
         return Validator::make($data, [
                     'nome' => 'required|string|max:255',
                     'autor' => 'required|string|max:255',
                     'sinopse' => 'required|string',
                     'capa' => 'image|mimes:jpeg,jpg,png',
-                    'estoque' => 'required|numeric|min:0'
+                    'estoque' => 'required|numeric|min:0',
+                    'comprimento' => 'required|regex:' . $regex . '|min:16',
+                    'altura' => 'required|regex:' . $regex . '|min:2',
+                    'largura' => 'required|regex:' . $regex . '|min:11',
+                    'diametro' => 'required|regex:' . $regex,
+                    'peso' => 'required|regex:' . $regex . '|min:2'
         ]);
     }
 

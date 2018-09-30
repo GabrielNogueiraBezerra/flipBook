@@ -61,7 +61,12 @@ trait AlterarLivro {
                     "id" => $this->livro->id,
                     "nome" => $request->input('nome'),
                     "autor" => $request->input('autor'),
-                    "sinopse" => $request->input('sinopse')
+                    "sinopse" => $request->input('sinopse'),
+                    "comprimento" => $request->input('comprimento'),
+                    "altura" => $request->input('altura'),
+                    "largura" => $request->input('largura'),
+                    "diametro" => $request->input('largura'),
+                    "peso" => $request->input('peso'),
         ]);
     }
 

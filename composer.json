@@ -6,6 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "caouecs/laravel-lang": "~3.0",
+        "escapework/frete": "0.5.*",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "mikemclin/laravel-wp-password": "~2.0.1"

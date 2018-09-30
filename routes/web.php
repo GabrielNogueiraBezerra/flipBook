@@ -12,6 +12,7 @@
  */
 
 Route::get('/', 'Site\HomeController@index');
+Route::get('/pesquisa', 'Site\HomeController@pesquisa');
 
 Route::get('/home', 'Site\HomeController@index');
 
@@ -26,12 +27,18 @@ Route::get('/deletaCapa/{id}', 'Dashboard\LivroController@deletaCapa');
 Route::post('/alterar', 'Dashboard\LivroController@alterar');
 Route::get('/excluir/{id}', 'Dashboard\LivroController@excluir');
 Route::get('/livro/{id}', 'Dashboard\LivroController@mostrarFormVerLivro');
+Route::get('/livros/buscar/livros', 'Dashboard\LivroController@pesquisa');
 
 // Compra Routes...
-Route::get('/areaVendas', 'Dashboard\AreaVendasController@index');
 Route::get('/areaCompras', 'Dashboard\AreaCompraController@index');
+Route::get('/areaCompras/pesquisa', 'Dashboard\AreaCompraController@pesquisa');
 
+// Venda routes...
+Route::get('/areaVendas', 'Dashboard\AreaVendasController@index');
+Route::get('/areaVendas/pesquisa', 'Dashboard\AreaVendasController@pesquisa');
 
+// Compra Livro routes...
+Route::get('/compraLivro/{id}', 'Site\CompraLivro@index');
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@mostraFormLogin')->name('login');

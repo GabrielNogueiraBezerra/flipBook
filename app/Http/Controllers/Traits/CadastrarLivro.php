@@ -48,6 +48,11 @@ trait CadastrarLivro {
                     'nome' => $array['nome'],
                     'sinopse' => $array['sinopse'],
                     'dono' => Auth::user()->id,
+                    'comprimento' => $array['comprimento'],
+                    'altura' => $array['altura'],
+                    'largura' => $array['largura'],
+                    'diametro' => $array['diametro'],
+                    'peso' => $array['peso'],
                     'capa' => $this->cadastrarImagem($array)['id']
         ]);
     }

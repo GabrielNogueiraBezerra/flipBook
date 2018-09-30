@@ -15,7 +15,7 @@ class Livro extends Model {
     protected $table = 'livro';
     protected $primaryKey = 'id';
     protected $filliable = [
-        'id', 'nome', 'autor', 'sinopse'
+        'id', 'nome', 'autor', 'sinopse', 'comprimento', 'altura', 'largura', 'diametro', 'peso'
     ];
     protected $hidden = [
         'dono', 'capa'
@@ -43,6 +43,11 @@ class Livro extends Model {
         $livro->sinopse = $array['sinopse'];
         $livro->dono = $array['dono'];
         $livro->capa = $array['capa'];
+        $livro->comprimento = $array['comprimento'];
+        $livro->altura = $array['altura'];
+        $livro->largura = $array['largura'];
+        $livro->diametro = $array['diametro'];
+        $livro->peso = $array['peso'];
         $livro->save();
 
         return $livro;
@@ -53,6 +58,11 @@ class Livro extends Model {
         $livro->nome = $array['nome'];
         $livro->autor = $array['autor'];
         $livro->sinopse = $array['sinopse'];
+        $livro->comprimento = $array['comprimento'];
+        $livro->altura = $array['altura'];
+        $livro->largura = $array['largura'];
+        $livro->diametro = $array['diametro'];
+        $livro->peso = $array['peso'];
         $livro->save();
 
         return $livro;

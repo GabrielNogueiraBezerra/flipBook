@@ -60,6 +60,57 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="comprimento" class="col-md-12 control-label">Comprimento</label>
+
+                        <div class="col-md-12">
+                            <input id="comprimento" value="{{ old('comprimento') }}"
+                                   placeholder="Digite o comprimento do livro" type="text" 
+                                   class="form-control" name="comprimento" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="altura" class="col-md-12 control-label">Altura</label>
+
+                        <div class="col-md-12">
+                            <input id="altura" value="{{ old('altura') }}"
+                                   placeholder="Digite a altura do livro" type="text" 
+                                   class="form-control" name="altura" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="largura" class="col-md-12 control-label">Largura</label>
+
+                        <div class="col-md-12">
+                            <input id="largura" value="{{ old('largura') }}"
+                                   placeholder="Digite a largura do livro" type="text" 
+                                   class="form-control" name="largura" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="diametro" class="col-md-12 control-label">Diametro</label>
+
+                        <div class="col-md-12">
+                            <input id="diametro" value="{{ old('diametro') }}"
+                                   placeholder="Digite o diametro do livro" type="text" 
+                                   class="form-control" name="diametro" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="peso" class="col-md-12 control-label">Peso</label>
+
+                        <div class="col-md-12">
+                            <input id="peso" value="{{ old('peso') }}"
+                                   placeholder="Digite o peso do livro" type="text" 
+                                   class="form-control" name="peso" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
                         <div class="col-md-12 col-md-offset-4">
                             <button type="submit" class="btn btn-warning pull-right">
                                 Cadastrar
@@ -71,11 +122,26 @@
             <!--lista de livros-->
             <div class="col col-6" id="lista-livros">
                 <h4 class="text-center">Livros cadastrados</h4>
+                <form class="form-inline" method="GET" action="/livros/buscar/livros">
+                    <input id="pesquisa" name="pesquisa" class="form-control col-lg-8 col-md-8" 
+                           type="search" placeholder="Digite a sua pesquisa">
+                    <button class="btn btn-block btn-warning col-lg-4 col-md-4" 
+                            type="submit">Pesquisar</button>
+                </form>
+                <br>
                 <div class="list-group">
                     @foreach($livros as $livro)
                     <a href="#" class="list-group-item list-group-item-action" id-livro="{{@$livro->id}}">{{@$livro->nome}}</a>
                     @endforeach
                 </div>
+                <br>
+                <ul class="pagination">
+                    @if (isset($pesquisar))
+                    {{$livros->appends($pesquisar)->links('vendor.pagination.bootstrap-4')}}
+                    @else
+                    {{$livros->links('vendor.pagination.bootstrap-4')}}
+                    @endif
+                </ul>
                 <br>
                 <div id="lista-opcoes">
                     <a href="" class="btn btn-large btn-block btn-primary disabled" name="ver-livro">Ver livro</a>

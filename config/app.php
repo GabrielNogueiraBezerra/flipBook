@@ -66,7 +66,7 @@ return [
       | to any of the locales which will be supported by the application.
       |
      */
-    'locale' => 'en',
+    'locale' => 'pt-br',
     /*
       |--------------------------------------------------------------------------
       | Application Fallback Locale
@@ -77,7 +77,7 @@ return [
       | the language folders that are provided through your application.
       |
      */
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'pt-br',
     /*
       |--------------------------------------------------------------------------
       | Encryption Key
@@ -151,7 +151,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        App\Providers\RouteServiceProvider::class
     ],
     /*
       |--------------------------------------------------------------------------

@@ -3,6 +3,41 @@
 <div class="amado-pro-catagory clearfix">
     <br>
     <div class="container">
+        @if(!empty($errors->first()))
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div  class="alert alert-danger text-center">
+                <span class="">{{ $errors->first() }}</span>
+            </div>
+        </div>
+        @endif
+        <div>
+            <form class="form-group" method="GET" action="/areaCompras/pesquisa">
+                <div class="row">
+                    <div class="col col-6">
+                        <div class="form-group">
+                            <label>Inicio</label>
+                            <input value="{{ old('dataInicio') }}" type="date" class="form-control" id="dataInicio" 
+                                   placeholder="Digite sua data" name="dataInicio">
+                        </div>
+                    </div>
+                    <div class="col col-6">
+                        <div class="form-group">
+                            <label>Final</label>
+                            <input value="{{ old('dataFim') }}" type="date" class="form-control" id="dataFim" 
+                                   placeholder="Digite sua data" name="dataFim">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-12">
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-block btn-primary" value="Pesquisar">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
         <div class="row">
             <table class="table">
                 <thead>
@@ -29,12 +64,22 @@
                             Entregue
                             @endif
                         </td>
-                        <td>{{@$venda->created_at}}</td>
+                        <td>
+                            {{ \Carbon\Carbon::parse($venda->created_at)->format('d/m/Y H:m:s')}}
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
+        <ul class="pagination justify-content-end">
+            @if (isset($datas))
+            {{$vendas->appends($datas)->links('vendor.pagination.bootstrap-4')}}
+            @else
+            {{$vendas->links('vendor.pagination.bootstrap-4')}}
+            @endif
+        </ul>
     </div>
 </div>
+<br>
 @stop

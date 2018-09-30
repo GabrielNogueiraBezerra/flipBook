@@ -15,7 +15,7 @@ class Venda extends Model {
     protected $table = 'venda';
     protected $primaryKey = 'id';
     protected $filliable = [
-        'id', 'status', 'valor'
+        'id', 'status', 'valor', 'created_at'
     ];
     protected $hidden = [
         'comprador', 'livro'
