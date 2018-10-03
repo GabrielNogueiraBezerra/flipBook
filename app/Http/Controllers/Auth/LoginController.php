@@ -37,7 +37,7 @@ use AuthenticatesUsers;
     public function logar(Request $request) {
 
 
-        $this->validateLogin($request);
+        $this->validarLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
@@ -61,6 +61,13 @@ use AuthenticatesUsers;
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
+    }
+
+    protected function validarLogin(Request $request) {
+        $this->validate($request, [
+            $this->username() => 'required|string',
+            'senha' => 'required|string',
+        ]);
     }
 
     public function matchingUser(Request $request) {
