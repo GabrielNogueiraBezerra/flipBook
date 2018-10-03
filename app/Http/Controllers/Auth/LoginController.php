@@ -63,6 +63,10 @@ use AuthenticatesUsers;
         return $this->sendFailedLoginResponse($request);
     }
 
+    public function matchingUser(Request $request) {
+        return Usuario::where($this->username(), '=', $request->input('email'))->get()->first();
+    }
+
     /**
      * Create a new controller instance.
      *
