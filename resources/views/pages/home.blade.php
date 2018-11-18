@@ -1,7 +1,7 @@
 @extends('layouts.pagina')
 @section('content')
 <br>
-
+@if (Auth::user())
 <div class="amado-pro-catagory clearfix text-center">
     <br>
     <h2>Pontuação: {{@$pontos}}</h2>
@@ -9,6 +9,7 @@
     <br>
     <br>
 </div>
+@endif
 @if (count($livros) > 0)
 <div class="amado-pro-catagory clearfix">
     <div class="container">

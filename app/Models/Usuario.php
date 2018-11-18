@@ -44,6 +44,7 @@ class Usuario extends Authenticatable {
         $usuario->nome = $array['nome'];
         $usuario->id_endereco = $array['id_endereco'];
         $usuario->id_contato = $array['id_contato'];
+        $usuario->pontos = 0;
         $usuario->save();
         return $usuario;
     }
