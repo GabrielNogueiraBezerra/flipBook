@@ -22,7 +22,7 @@
                     </div>
 
                     <p class="text-justify">{!! substr($livro->sinopse, 0, 255) !!}...</p>
-                    <a href=#" class="btn amado-btn w-100">Comprar</a>
+                    <a href="/realizarCompraLivro/{{$livro->id}}" class="btn amado-btn w-100">Comprar</a>
                 </div>
             </div>
         </div>

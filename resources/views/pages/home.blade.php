@@ -1,6 +1,14 @@
 @extends('layouts.pagina')
 @section('content')
 <br>
+
+<div class="amado-pro-catagory clearfix text-center">
+    <br>
+    <h2>Pontuação: {{@$pontos}}</h2>
+    <small style="font-size: 12px">A pontuação é acrescida em relação a quantidade de vendas que foram pagas na sua conta.</small>
+    <br>
+    <br>
+</div>
 @if (count($livros) > 0)
 <div class="amado-pro-catagory clearfix">
     <div class="container">

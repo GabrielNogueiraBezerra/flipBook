@@ -10,7 +10,7 @@
         </div>
     </div>
     @endif
-    
+
     <div class="container">
         <form method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
@@ -53,7 +53,7 @@
                         <label for="celular" class="col-md-12 control-label">Celular</label>
 
                         <div class="col-md-12">
-                            <input placeholder="Digite seu celular" id="celular" type="text" class="form-control" name="celular" 
+                            <input placeholder="Digite seu celular" id="celular" value="{{ old('celular') }}" type="text" class="form-control" name="celular" 
                                    required>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
 
                         <div class="col-md-12">
                             <input  placeholder="Digite seu endereço de e-mail" id="email" type="email"
-                                   class="form-control" name="email" value="{{ old('email') }}" required>
+                                    class="form-control" name="email" value="{{ old('email') }}" required>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                             <label for="endereco" class="col-md-12 control-label">Endereço</label>
 
                             <div class="col-md-12">
-                                <input placeholder="Digite seu endereço" id="endereco" type="text" class="form-control" name="endereco" required>
+                                <input placeholder="Digite seu endereço" value="{{ old('endereco') }}" id="endereco" type="text" class="form-control" name="endereco" required>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                             <label for="numero" class="col-md-12 control-label">Número</label>
 
                             <div class="col-md-12">
-                                <input id="numero" placeholder="Digite o número" type="text" class="form-control" name="numero" required>
+                                <input id="numero" placeholder="Digite o número" value="{{ old('numero') }}" type="text" class="form-control" name="numero" required>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                             <label for="bairro" class="col-md-12 control-label">Bairro</label>
 
                             <div class="col-md-12">
-                                <input id="bairro" placeholder="Digite o bairro" type="text" class="form-control" name="bairro" 
+                                <input id="bairro" placeholder="Digite o bairro" value="{{ old('bairro') }}" type="text" class="form-control" name="bairro" 
                                        required>
 
                             </div>
@@ -114,7 +114,8 @@
                             <label for="cep" class="col-md-12 control-label">CEP</label>
 
                             <div class="col-md-12">
-                                <input id="cep" type="text" placeholder="Digite o CEP" class="form-control" name="cep" required>
+                                <input id="cep" type="text" placeholder="Digite o CEP: 00000-000" 
+                                       value="{{ old('cep') }}" class="form-control" name="cep" required>
                             </div>
                         </div>
                     </div>
@@ -149,7 +150,7 @@
 
                             <div class="col-md-12">
                                 <textarea rows="4" placeholder="Digite o ponto de referência" id="pontoReferencia"
-                                          type="text" class="form-control" name="pontoReferencia"></textarea>
+                                          type="text" class="form-control" name="pontoReferencia">{{ old('pontoReferencia') }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -158,7 +159,7 @@
                             <label for="complemento" class="col-md-12 control-label">Complemento</label>
 
                             <div class="col-md-12">
-                                <textarea rows="4" id="complemento" placeholder="Digite o complemento" type="text" class="form-control" name="complemento"></textarea>
+                                <textarea rows="4" id="complemento" placeholder="Digite o complemento" type="text" class="form-control" name="complemento">{{ old('complemento') }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -182,7 +183,8 @@
                             <label for="password" class="col-md-12 control-label">Senha</label>
 
                             <div class="col-md-12">
-                                <input id="senha" type="password" placeholder="Digite sua senha" class="form-control" name="senha" required>
+                                <input id="senha" type="password" value="{{ old('senha') }}" 
+                                       placeholder="Digite sua senha" class="form-control" name="senha" required>
                             </div>
                         </div>
                     </div>
@@ -192,7 +194,8 @@
                             <label for="senha_confirmation" class="col-md-12 control-label">Confirmar Senha</label>
 
                             <div class="col-md-12">
-                                <input id="senha_confirmation" type="password" placeholder="Confirme a sua senha" class="form-control" name="senha_confirmation" 
+                                <input id="senha_confirmation" type="password" value="{{ old('senha_confirmation') }}" 
+                                       placeholder="Confirme a sua senha" class="form-control" name="senha_confirmation" 
                                        required>
                             </div>
                         </div>

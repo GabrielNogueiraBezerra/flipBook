@@ -30,8 +30,9 @@ Route::get('/livro/{id}', 'Dashboard\LivroController@mostrarFormVerLivro');
 Route::get('/livros/buscar/livros', 'Dashboard\LivroController@pesquisa');
 
 // Compra Routes...
-Route::get('/areaCompras', 'Dashboard\AreaCompraController@index');
+Route::get('/areaCompras', 'Dashboard\AreaCompraController@index')->name('areaCompras');
 Route::get('/areaCompras/pesquisa', 'Dashboard\AreaCompraController@pesquisa');
+Route::get('/informacoes/{id}', 'Dashboard\DetalheVendaController@index');
 
 // Venda routes...
 Route::get('/areaVendas', 'Dashboard\AreaVendasController@index');
@@ -39,6 +40,7 @@ Route::get('/areaVendas/pesquisa', 'Dashboard\AreaVendasController@pesquisa');
 
 // Compra Livro routes...
 Route::get('/compraLivro/{id}', 'Site\CompraLivro@index');
+Route::get('/realizarCompraLivro/{id}', 'Site\CompraLivro@comprar');
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@mostraFormLogin')->name('login');
@@ -56,3 +58,12 @@ $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+// perfil
+Route::get('/perfil', 'Dashboard\PerfilController@index');
+Route::get('/buscarCidadesPerfil/{id}', 'Dashboard\PerfilController@getCidades');
+Route::post('/perfil/update', 'Dashboard\PerfilController@update');
+
+
+// boleto
+Route::get('/boleto/{id}', 'Dashboard\BoletoController@index');

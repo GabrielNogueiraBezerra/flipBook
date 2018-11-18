@@ -20,7 +20,7 @@ class AreaVendasController extends Controller {
         return view('pages.areavendas')->
                         with('vendas', Venda::join('livro', 'livro.id', '=', 'venda.livro')->
                                 select('venda.id as codigo', 'venda.comprador', 'venda.livro', 'venda.status', 'venda.valor', 'venda.created_at')->
-                                where('livro.dono', '=', Auth::user()->id)->paginate($this->paginacao));
+                                where('livro.dono', '=', Auth::user()->id)->orderBy('codigo', 'desc')->paginate($this->paginacao));
     }
 
     public function pesquisa(Request $request) {
@@ -32,7 +32,7 @@ class AreaVendasController extends Controller {
                                 select('venda.id as codigo', 'venda.comprador', 'venda.livro', 'venda.status', 'venda.valor', 'venda.created_at')->
                                 where('livro.dono', '=', Auth::user()->id)->
                                 where('venda.created_at', '>=', $request->input('dataInicio') . ' 00:00:00')->
-                                where('venda.created_at', '<=', $request->input('dataFim') . ' 00:00:00')
+                                where('venda.created_at', '<=', $request->input('dataFim') . ' 00:00:00')->orderBy('codigo', 'desc')
                                 ->paginate($this->paginacao))->with('datas', $request->all());
     }
 

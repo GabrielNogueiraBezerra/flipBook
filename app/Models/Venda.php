@@ -15,7 +15,7 @@ class Venda extends Model {
     protected $table = 'venda';
     protected $primaryKey = 'id';
     protected $filliable = [
-        'id', 'status', 'valor', 'created_at'
+        'id', 'status', 'valor', 'created_at', 'nossoNumero'
     ];
     protected $hidden = [
         'comprador', 'livro'
@@ -29,6 +29,18 @@ class Venda extends Model {
     // função que retornará o objeto do livro comprado
     public function livroComprado() {
         return $this->hasOne('App\Models\Livro', 'id', 'livro');
+    }
+
+    // função responsável por cadastrar a venda no banco de dados
+    public static function create($array = null) {
+        $venda = new Venda();
+        $venda->status = 0;
+        $venda->valor = $array['valor'];
+        $venda->comprador = $array['comprador'];
+        $venda->livro = $array['livro'];
+        $venda->nossonumero = '';
+        $venda->save();
+        return $venda;
     }
 
 }

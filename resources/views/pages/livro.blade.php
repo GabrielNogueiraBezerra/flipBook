@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="comprimento" class="col-md-12 control-label">Comprimento</label>
+                        <label for="comprimento" class="col-md-12 control-label">Comprimento (minimo: 16)</label>
 
                         <div class="col-md-12">
                             <input id="comprimento" value="{{ old('comprimento') }}"
@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="altura" class="col-md-12 control-label">Altura</label>
+                        <label for="altura" class="col-md-12 control-label">Altura (minimo: 2)</label>
 
                         <div class="col-md-12">
                             <input id="altura" value="{{ old('altura') }}"
@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="largura" class="col-md-12 control-label">Largura</label>
+                        <label for="largura" class="col-md-12 control-label">Largura (minimo: 11)</label>
 
                         <div class="col-md-12">
                             <input id="largura" value="{{ old('largura') }}"
@@ -100,7 +100,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="peso" class="col-md-12 control-label">Peso</label>
+                        <label for="peso" class="col-md-12 control-label">Peso (minimo: 2)</label>
 
                         <div class="col-md-12">
                             <input id="peso" value="{{ old('peso') }}"

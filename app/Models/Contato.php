@@ -31,4 +31,11 @@ class Contato extends Model {
         return $contato;
     }
 
+    public static function updateContato($array = null) {
+        $contato = Contato::FindOrFail($array['idContato']);
+        $contato->celular = $array['celular'];
+        $contato->save();
+        return $contato;
+    }
+
 }

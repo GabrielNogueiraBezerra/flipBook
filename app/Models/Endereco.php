@@ -40,4 +40,17 @@ class Endereco extends Model {
         return $endereco;
     }
 
+    public static function updateEndereco($array = null) {
+        $endereco = Endereco::FindOrFail($array['idEndereco']);
+        $endereco->endereco = $array['endereco'];
+        $endereco->numero = $array['numero'];
+        $endereco->cep = $array['cep'];
+        $endereco->pontoReferencia = $array['pontoReferencia'];
+        $endereco->complemento = $array['complemento'];
+        $endereco->bairro = $array['bairro'];
+        $endereco->id_cidade = $array['id_cidade'];
+        $endereco->save();
+        return $endereco;
+    }
+
 }

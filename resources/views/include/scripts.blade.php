@@ -11,6 +11,10 @@
 <!-- Active js -->
 <script src="{{ asset('bibliotecas/js/temp.js') }}"></script>
 
-@if(@explode('/', Request::url())[3] == 'register')
+@if((@explode('/', Request::url())[3] == 'register'))
 <script src="{{ asset('bibliotecas/js/buscaCidades.js') }}"></script>
+@endif
+
+@if((@explode('/', Request::url())[3] == 'perfil'))
+<script src="{{ asset('bibliotecas/js/buscaCidades_perfil.js') }}"></script>
 @endif

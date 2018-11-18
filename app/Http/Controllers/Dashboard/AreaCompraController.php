@@ -19,7 +19,7 @@ class AreaCompraController extends Controller {
     public function index() {
         return view("pages.areacompras")->
                         with('vendas', Venda::where(
-                                        'comprador', '=', Auth::user()->id)->paginate($this->paginacao)
+                                        'comprador', '=', Auth::user()->id)->orderBy('id', 'desc')->paginate($this->paginacao)
         );
     }
 
@@ -30,7 +30,7 @@ class AreaCompraController extends Controller {
         return view("pages.areacompras")->with('vendas', Venda::
                                 where('comprador', '=', Auth::user()->id)->
                                 where('created_at', '>=', $request->input('dataInicio') . ' 00:00:00')->
-                                where('created_at', '<=', $request->input('dataFim') . ' 00:00:00')
+                                where('created_at', '<=', $request->input('dataFim') . ' 00:00:00')->orderBy('id', 'desc')
                                 ->paginate($this->paginacao)
                 )->with('datas', $request->all());
     }

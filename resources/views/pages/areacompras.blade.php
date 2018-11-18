@@ -47,6 +47,7 @@
                         <th scope="col">Valor</th>
                         <th scope="col">Status</th>
                         <th scope="col">Data/Hora Compra</th>
+                        <th scope="col">Opções</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,6 +68,12 @@
                         <td>
                             {{ \Carbon\Carbon::parse($venda->created_at)->format('d/m/Y H:m:s')}}
                         </td>
+                        @if ($venda->status == 0)
+                        <td><a target="_blank" href="/boleto/{{@$venda->id}}" class="btn btn-danger btn-sm">Boleto</a></td>
+                        @else
+                        <td><a href="#" class="btn btn-success btn-sm disabled">Boleto</a></td>
+                        @endif
+                        <td><a href="/informacoes/{{@$venda->id}}" class="btn btn-info btn-sm">Informações</a></td>
                     </tr>
                     @endforeach
                 </tbody>

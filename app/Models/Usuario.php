@@ -19,7 +19,7 @@ class Usuario extends Authenticatable {
     protected $table = 'usuario';
     protected $primaryKey = 'id';
     protected $filliable = [
-        'id', 'tipo_usuario', 'email', 'senha', 'nome'
+        'id', 'tipo_usuario', 'email', 'senha', 'nome', 'pontos'
     ];
     protected $hidden = [
         'id', 'id_endereco', 'id_contato'
@@ -44,6 +44,17 @@ class Usuario extends Authenticatable {
         $usuario->nome = $array['nome'];
         $usuario->id_endereco = $array['id_endereco'];
         $usuario->id_contato = $array['id_contato'];
+        $usuario->save();
+        return $usuario;
+    }
+
+    public static function udpateUsuario($array = null) {
+        $usuario = Usuario::FindOrFail($array['idUsuario']);
+        $usuario->tipo_usuario = $array['tipoUsuario'];
+        if ($array['senha'] != '') {
+            $usuario->senha = $array['senha'];
+        }
+        $usuario->nome = $array['nome'];
         $usuario->save();
         return $usuario;
     }
